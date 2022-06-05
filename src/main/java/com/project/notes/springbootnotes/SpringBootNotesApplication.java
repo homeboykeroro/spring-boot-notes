@@ -8,10 +8,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 	and most idiomatic Spring Boot applications will inherit it from @SpringBootApplication.
 
 	Auto-configuration can be enabled by adding @SpringBootApplication or @EnableAutoConfiguration annotation 
-	in startup class. It indicates that it is a spring context file.
-
-		- It enables something called auto-configuration.
-		- It enable something called components scan. It is the features of Spring where it will start 
+	in startup class. It indicates that it is a spring context file. It can:
+		- enable something called auto-configuration.
+		- enabl something called components scan. It is the features of Spring where it will start 
 			automatically scanning classes in the package and sub package for any bean file.
 	
 	There is some example of auto configuration done by Spring Boot:
@@ -20,23 +19,25 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 		- JacksonAutoConfiguration
 		- ErrorMvcAutoConfiguration (#basicErrorController)
 
-	Almost equivalent to:
+	Almost equivalent to combination of:
 		@SpringBootConfiguration
 		@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class, SecurityAutoConfiguration.class})
 		@ComponentScan(basePackages="com.example.quickstart")
 
 
-
 	If one uses Spring but not Spring boot, we have to explictly configure all the stuff
-	
 	Manual configuration example:
-		- Persistance: https://stackoverflow.com/questions/26548505/org-hibernate-hibernateexception-access-to-dialectresolutioninfo-cannot-be-null
+		- Data Persistance: https://stackoverflow.com/questions/26548505/org-hibernate-hibernateexception-access-to-dialectresolutioninfo-cannot-be-null
 		- DispatcherServelet: https://zetcode.com/spring/webapplicationinitializer/
 */
 @SpringBootApplication
 public class SpringBootNotesApplication {
 
 	public static void main(String[] args) {
+		/*
+			If you want to execute function after spring application starts up, 
+			you can place your function call here (for Spring application run as jar)
+		*/
 		SpringApplication.run(SpringBootNotesApplication.class, args);
 	}
 
